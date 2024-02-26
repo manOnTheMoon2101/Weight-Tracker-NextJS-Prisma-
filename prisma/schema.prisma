@@ -1,0 +1,22 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Data {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  date DateTime @default(now())
+  loseWeight Boolean
+  weight Float
+
+  caloriesConsumed Float
+  caloriesBurned Float
+  extraInfo String?
+  
+}
+
