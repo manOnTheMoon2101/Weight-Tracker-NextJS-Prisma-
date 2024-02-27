@@ -1,3 +1,22 @@
-.mainDiv{
-    background-color: khaki;
+.mainDiv {
+  background-color: #FEFAE0;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.box {
+  display: flex;
+  text-align: center;
+
+  justify-content: space-evenly;
+}
+
+.box h3{
+  color: #BC6C25;
+}
+
+.box p {
+  padding: 5px;
+
+  font-weight: bold;
 }

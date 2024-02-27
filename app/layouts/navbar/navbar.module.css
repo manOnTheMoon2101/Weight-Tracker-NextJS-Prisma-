@@ -1,4 +1,11 @@
-.navDiv{
-    background-color: salmon;
+.navDiv ul{
    
+   list-style: none;
+   float: right;
+}
+
+.navDiv li{
+    padding: 10px;
+    display: inline-block;
+
 }

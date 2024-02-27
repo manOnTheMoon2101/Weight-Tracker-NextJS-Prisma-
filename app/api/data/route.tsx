@@ -7,6 +7,11 @@ export const GET = async () =>{
     try {
         const data = await prisma.data.findMany()
 
+        data.map((x: any) =>{
+            x.date = x.date.toDateString();
+
+      
+        })
 
        return NextResponse.json(data);
     }

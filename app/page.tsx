@@ -9,7 +9,7 @@ export default async function Home() {
 
   
   return (
-    <main>
+    <main style={{clear:'both'}}>
      <h2>Body</h2>
 
 

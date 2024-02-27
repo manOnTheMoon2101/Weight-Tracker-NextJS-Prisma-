@@ -10,8 +10,8 @@ export default function Navbar(){
         <div className={styles.navDiv}>
         <ul>
             <li>Home</li>
-            <li>2</li>
-            <li>3</li>
+            <li>Graphs</li>
+            <li>Calculators</li>
         </ul>
         
         </div>
