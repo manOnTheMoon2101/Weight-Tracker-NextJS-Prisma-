@@ -11,13 +11,13 @@ export default function Navbar() {
     <div className={styles.navDiv}>
       <ul>
         <li>
-          <Link href='/'>
+          <Link href='/' className={styles.linkColor}>
           Home
           <FaHome />
           </Link>
         </li>
         <li>
-          <Link href={'pages/graphs'}>
+          <Link href={'/graphs'}  className={styles.linkColor}>
           Graphs
           <BsFileBarGraph />
           </Link>

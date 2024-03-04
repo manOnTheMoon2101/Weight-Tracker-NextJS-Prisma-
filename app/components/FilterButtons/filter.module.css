@@ -1,0 +1,57 @@
+.filterDiv {
+  margin-bottom: 5px;
+}
+
+.refreshButton2 {
+  float: right;
+  border: none;
+  background-color: #dda15e;
+  color: white;
+  font-size: 25px;
+}
+
+.selectDiv {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #dda15e;
+  color: white;
+}
+
+.buttonDiv {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 20px;
+  background-color: white;
+  color: #dda15e;
+}
+
+.buttonAddDiv {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+  background-color: white;
+  color: #dda15e;
+}
+
+.buttonAddDiv:hover {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+  background-color: white;
+  color: lime;
+  cursor: pointer;
+}
+
+.buttonDiv:hover{
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 20px;
+  background-color: white;
+  color: blue;
+  cursor: pointer;
+}

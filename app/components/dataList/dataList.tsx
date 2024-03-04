@@ -1,4 +1,4 @@
-"use client";
+
 
 import styles from "./list.module.css";
 import { FaAngleDoubleDown } from "react-icons/fa";
@@ -7,6 +7,10 @@ import { MdDateRange } from "react-icons/md";
 import { FaWeight } from "react-icons/fa";
 import { MdFoodBank } from "react-icons/md";
 import { FaInfoCircle } from "react-icons/fa";
+import FormControl from "../formControl/FormControl";
+
+
+
 async function getData() {
   const res = await fetch("http://localhost:3000/api/data", {
     cache: "no-cache",
@@ -20,10 +24,9 @@ async function getData() {
 }
 
 export default async function List() {
+ 
   const data = await getData();
-  const y = data.map((x: any) => {
-    x.loseWeight;
-  });
+
   return (
     <div className={styles.mainDiv}>
       {data.map((x: any) => {
@@ -31,8 +34,10 @@ export default async function List() {
           return (
             <>
               <div className={styles.box}>
+           
                 <div style={{ width: "16%" }}>
                   <h3>Date<MdDateRange/></h3>
+                  
                   <p> {x.date}</p>
                 </div>
 
@@ -47,47 +52,51 @@ export default async function List() {
                 </div>
 
                 <div style={{ width: "16%" }}>
-                  <h3>Calories Consumed<MdFoodBank /></h3>
-                  <p>{x.caloriesConsumed}</p>
+                  <h3>Workout Days<MdFoodBank /></h3>
+                  <p>{x.daysWorkedOut}</p>
                 </div>
 
-                <div style={{ width: "16%" }}>
-                <h3>Calories Burned<MdFoodBank /></h3>
-                  <p> {x.caloriesBurned}</p>
-                </div>
+                
 
                 <div style={{ width: "16%" }}>
                   <h3>Info<FaInfoCircle /></h3>
                   <p> {x.extraInfo}</p>
                 </div>
+
+<FormControl/>
+               
               </div>
             </>
           );
-        } else {
+        }
+        
+        
+        
+        
+        
+        else {
           return (
             <>
               <div className={styles.box}>
-                <div style={{ width: "16%" }}>
+                <div style={{ width: "20%" }}>
                   <p> {x.date}</p>
                 </div>
 
-                <div style={{ width: "16%" }}>
+                <div style={{ width: "20%" }}>
                   <p> {x.weight}</p>
                 </div>
 
-                <div style={{ width: "16%" }}>
+                <div style={{ width: "20%" }}>
                   <p><FaAngleDoubleDown color="#606C38"/></p>
                 </div>
 
-                <div style={{ width: "16%" }}>
-                  <p>{x.caloriesConsumed}</p>
+                <div style={{ width: "20%" }}>
+                  <p>{x.daysWorkedOut}</p>
                 </div>
 
-                <div style={{ width: "16%" }}>
-                  <p> {x.caloriesBurned}</p>
-                </div>
+               
 
-                <div style={{ width: "16%" }}>
+                <div style={{ width: "20%" }}>
                   <p> {x.extraInfo}</p>
                 </div>
               </div>

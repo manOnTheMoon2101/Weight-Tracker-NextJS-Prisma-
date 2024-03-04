@@ -1,0 +1,10 @@
+.buttonDiv{
+    width: 16%;
+  }
+  
+  .buttonDiv button{
+    background-color: #FEFAE0;
+    border: none;
+  font-size: 20px;
+  cursor: pointer;
+  }

@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 
-import Navbar from "./layouts/navbar/page";
+import Navbar from "./layouts/navbar/Navbar";
 import Footer from "./layouts/footer/page";
 import Head from "next/head";
+import { Nova_Round } from "next/font/google";
 
-
+const nova_round = Nova_Round({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,15 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <header>
-        <Navbar/>
-      </header>
+    <html>
 
-      <body>{children}</body>
-      <footer>
-        <Footer />
-      </footer>
-    </>
+      <body>
+      <Navbar/>
+        <main>{children}</main>
+        <Footer/>
+      </body>
+    </html>
   );
 }

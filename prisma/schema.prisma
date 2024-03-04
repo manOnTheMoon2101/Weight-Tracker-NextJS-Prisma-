@@ -14,8 +14,8 @@ model Data {
   loseWeight Boolean
   weight Float
 
-  caloriesConsumed Float
-  caloriesBurned Float
+  daysWorkedOut Int
+
   extraInfo String?
   
 }
