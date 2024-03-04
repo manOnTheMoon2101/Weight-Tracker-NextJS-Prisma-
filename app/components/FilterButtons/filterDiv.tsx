@@ -7,6 +7,8 @@ import { IoMdAdd } from "react-icons/io";
 import { useState } from "react";
 import { ReactNode } from "react";
 import Modal from "../modal/modal";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { FaCalculator } from "react-icons/fa";
 import Form from "../addForm/Form";
 import Calculator from "../bmiCalculator/Calculator";
 interface MyComponentProps {
@@ -41,17 +43,17 @@ const FilterDiv: React.FC<MyComponentProps> = ({ children }) => {
 
         
         <button  className={styles.buttonAddDiv} onClick={toggleModal}>
-          Add Record +
+          Add Record <IoIosAddCircleOutline />
         </button>
         <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
-          <h2>Add Record</h2>
+      
          <Form/>
         </Modal>
 
 
         
         <button  className={styles.buttonDiv} onClick={toggleModal2}>
-          BMI Calculator
+          BMI Calculator <FaCalculator />
         </button>
         <Modal isOpen={isModalOpen2} toggleModal={toggleModal2}>
          <Calculator/>

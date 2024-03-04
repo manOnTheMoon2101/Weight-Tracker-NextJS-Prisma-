@@ -3,6 +3,7 @@
 import React from 'react';
 import './Modal.css';
 import { ReactNode } from 'react';
+import { FaRegWindowClose } from "react-icons/fa";
 interface MyComponentProps {
     isOpen: ReactNode;
     toggleModal: any;
@@ -15,7 +16,7 @@ const Modal: React.FC<MyComponentProps> = ({ isOpen, toggleModal, children }) =>
     <div className="modal">
       <div className="modal-content">
 
-        <span className="close" onClick={toggleModal}>&times;</span>
+        <span className="close" onClick={toggleModal}><FaRegWindowClose /></span>
         {children}
       </div>
     </div>

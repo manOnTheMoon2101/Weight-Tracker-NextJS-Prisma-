@@ -1,0 +1,65 @@
+.lostWeightDiv {
+  text-align: center;
+}
+.lostWeightDiv input {
+  margin: 10px;
+}
+
+.lostWeightDiv label {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 1px;
+}
+
+.middleDiv {
+  display: flex;
+
+  text-align: center;
+
+  justify-content: space-around;
+}
+
+.middleDiv input {
+  margin: 10px;
+
+  padding: 10px;
+  background-color: #fefae0;
+  border-radius: 5px;
+}
+.middleDiv h3 {
+  margin: 10px;
+  font-weight: bold;
+
+  font-size: 25px;
+}
+
+.dateDiv {
+  text-align: center;
+}
+.dateDiv label {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 1px;
+}
+.dateDiv input {
+  margin: 10px;
+  padding: 10px;
+  background-color: #fefae0;
+  border-radius: 5px;
+}
+
+.submitButton {
+  float: right;
+}
+
+.submitButton button {
+  background-color: #606c38;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
