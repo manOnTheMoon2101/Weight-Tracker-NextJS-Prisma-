@@ -2,6 +2,7 @@
 
 
 import React from 'react'
+import styles from './calculator.module.css'
 import { useState } from 'react'
 function Calculator() {
     const [weight, setWeight] = useState<number | ''>('');
@@ -17,100 +18,36 @@ function Calculator() {
 
 
     
- if(bmi! >= 30){
-  return (
-    <div>
-      <h2>BMI Calculator</h2>
-      <div>
-        <label>
-          Weight (kg):
-          <input type="number" value={weight} onChange={(e) => setWeight(Number(e.target.value))} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Height (cm):
-          <input type="number" value={height} onChange={(e) => setHeight(Number(e.target.value))} />
-        </label>
-      </div>
-      <button onClick={calculateBMI}>Calculate BMI</button>
-      {bmi}
-      <p>OverWeight</p>
- 
-    </div>
-  )
- }
 
- if(bmi! >= 20 && bmi! <= 30){
-  return (
-    <div>
-      <h2>BMI Calculator</h2>
-      <div>
-        <label>
-          Weight (kg):
-          <input type="number" value={weight} onChange={(e) => setWeight(Number(e.target.value))} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Height (cm):
-          <input type="number" value={height} onChange={(e) => setHeight(Number(e.target.value))} />
-        </label>
-      </div>
-      <button onClick={calculateBMI}>Calculate BMI</button>
-      {bmi}
-      <p>Healthy Weight</p>
- 
-    </div>
-  )
- }
- if(bmi! >= 0 && bmi! <= 20){
-  return (
-    <div>
-      <h2>BMI Calculator</h2>
-      <div>
-        <label>
-          Weight (kg):
-          <input type="number" value={weight} onChange={(e) => setWeight(Number(e.target.value))} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Height (cm):
-          <input type="number" value={height} onChange={(e) => setHeight(Number(e.target.value))} />
-        </label>
-      </div>
-      <button onClick={calculateBMI}>Calculate BMI</button>
-      {bmi}
-      <p>Skinny Bitch</p>
- 
-    </div>
-  )
- }
 
-if(bmi == null){
   return (
     <div>
-      <h2>BMI Calculator</h2>
-      <div>
+    
+      <div className={styles.weightDiv}>
         <label>
           Weight (kg):
-          <input type="number" value={weight} onChange={(e) => setWeight(Number(e.target.value))} />
+          <input  type="number" value={weight} onChange={(e) => setWeight(Number(e.target.value))} />
         </label>
       </div>
-      <div>
+      <div className={styles.heightDiv}>
         <label>
           Height (cm):
           <input type="number" value={height} onChange={(e) => setHeight(Number(e.target.value))} />
         </label>
       </div>
+      <div className={styles.submitB} >
       <button onClick={calculateBMI}>Calculate BMI</button>
+      </div>
      
-   
- 
+     <div className={styles.dataDiv}>
+     <p>{bmi}/m2</p>
+      <p style={{color:'rgb(198, 169, 105)'}}></p>
+      </div>
     </div>
   )
-}
-}
+ }
+
+
+
 
 export default Calculator

@@ -1,7 +1,7 @@
 .mainDiv {
   clear: both;
-  background-color: #FEFAE0;
-  border: 2px solid black;
+  background-color: rgb(241, 228, 195);
+  border: 2px solid rgb(198, 169, 105);
   border-radius: 10px;
 
 }
@@ -14,12 +14,13 @@
 }
 
 .box h3{
-  color: #BC6C25;
+  color: rgb(198, 169, 105);
+
 }
 
 .box p {
   padding: 5px;
 
-  font-weight: bold;
+
 }
 

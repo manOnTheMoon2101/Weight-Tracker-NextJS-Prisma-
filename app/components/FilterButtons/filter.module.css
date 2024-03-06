@@ -14,7 +14,7 @@
   border: 1px solid white;
   border-radius: 5px;
   padding: 5px;
-  background-color: #dda15e;
+  background-color: #597E52;
   color: white;
 }
 
@@ -23,8 +23,10 @@
   border-radius: 5px;
   padding: 5px;
   margin-left: 20px;
-  background-color: white;
-  color: #dda15e;
+  background-color: rgb(198, 169, 105);
+  color: white;
+  cursor: pointer;
+  
 }
 
 .buttonAddDiv {
@@ -32,26 +34,31 @@
   border-radius: 5px;
   padding: 5px;
   margin-left: 10px;
-  background-color: white;
-  color: #dda15e;
+  background-color: rgb(198, 169, 105);
+  color: white;
+  cursor: pointer;
 }
 
-.buttonAddDiv:hover {
-  border: 1px solid white;
+.buttonAddDiv:active {
+
   border-radius: 5px;
   padding: 5px;
   margin-left: 10px;
-  background-color: white;
-  color: lime;
+  background-color: rgb(241, 228, 195);
+  color: rgb(89, 126, 82);
+  font-weight: bold;
   cursor: pointer;
+  scale: 0.9;
 }
 
-.buttonDiv:hover{
-  border: 1px solid white;
+.buttonDiv:active{
+
   border-radius: 5px;
   padding: 5px;
   margin-left: 20px;
-  background-color: white;
-  color: blue;
+  background-color: rgb(241, 228, 195);
+  color: black;
+  font-weight: bold;
   cursor: pointer;
+  scale: 0.9;
 }

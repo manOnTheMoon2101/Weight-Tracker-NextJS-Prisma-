@@ -1,30 +1,35 @@
 .lostWeightDiv {
+  position: relative;
+
+  top: 100px;
+
   text-align: center;
-}
-.lostWeightDiv input {
-  margin: 10px;
+
+  float: right;
 }
 
 .lostWeightDiv label {
   margin: 10px;
   font-weight: bold;
-  font-size: 25px;
-  line-height: 1px;
+
+  font-size: 30px;
+}
+
+.lostWeightDiv input{
+  margin: 10px;
 }
 
 .middleDiv {
-  display: flex;
-
+  float: left;
   text-align: center;
-
-  justify-content: space-around;
 }
 
 .middleDiv input {
   margin: 10px;
-
-  padding: 10px;
-  background-color: #fefae0;
+border: 1px solid #C6A969;
+  padding: 5px;
+  background-color: rgb(241, 228, 195);
+  color: white;
   border-radius: 5px;
 }
 .middleDiv h3 {
@@ -34,32 +39,21 @@
   font-size: 25px;
 }
 
-.dateDiv {
-  text-align: center;
-}
-.dateDiv label {
-  margin: 10px;
-  font-weight: bold;
-  font-size: 25px;
-  line-height: 1px;
-}
-.dateDiv input {
-  margin: 10px;
-  padding: 10px;
-  background-color: #fefae0;
-  border-radius: 5px;
-}
-
 .submitButton {
+  clear: both;
   float: right;
 }
 
 .submitButton button {
-  background-color: #606c38;
-  padding: 10px;
+  background-color: #597e52;
+  padding: 15px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
   color: white;
   font-weight: bold;
+}
+
+.submitButton button:hover {
+background-color: lime;
 }

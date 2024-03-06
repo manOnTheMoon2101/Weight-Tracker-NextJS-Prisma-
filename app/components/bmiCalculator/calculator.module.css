@@ -1,0 +1,39 @@
+.weightDiv{
+   padding: 10px;
+   display: inline-block;
+}
+.weightDiv input{
+    border-radius: 5px;
+    background-color: rgb(241, 228, 195);
+    border: 1px solid #C6A969;
+    padding: 5px;
+}
+.heightDiv{
+    padding: 10px;
+    display: inline-block;
+ }
+ .heightDiv input{
+    border-radius: 5px;
+    background-color: rgb(241, 228, 195);
+    border: 1px solid #C6A969;
+    padding: 5px;
+ }
+
+ .submitB{
+    text-align: center;
+    padding: 10px;
+ }
+
+ .submitB button{
+background-color: rgb(89, 126, 82);
+color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px;
+ }
+
+ .dataDiv p{
+text-align: center;
+font-size: 20px;
+ }
+

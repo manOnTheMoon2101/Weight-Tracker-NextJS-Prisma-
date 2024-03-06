@@ -11,7 +11,7 @@ datasource db {
 model Data {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   date DateTime @default(now())
-  loseWeight Boolean
+  loseWeight Boolean 
   weight Float
 
   daysWorkedOut Int

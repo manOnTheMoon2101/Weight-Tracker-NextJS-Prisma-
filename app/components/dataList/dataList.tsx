@@ -1,15 +1,12 @@
-
-
 import styles from "./list.module.css";
 import { FaAngleDoubleDown } from "react-icons/fa";
 import { FaAngleDoubleUp } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { FaWeight } from "react-icons/fa";
-import { MdFoodBank } from "react-icons/md";
+import { FaWeightHanging } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
+import { CgGym } from "react-icons/cg";
 import FormControl from "../formControl/FormControl";
-
-
 
 async function getData() {
   const res = await fetch("http://localhost:3000/api/data", {
@@ -24,7 +21,6 @@ async function getData() {
 }
 
 export default async function List() {
- 
   const data = await getData();
 
   return (
@@ -34,71 +30,101 @@ export default async function List() {
           return (
             <>
               <div className={styles.box}>
-           
                 <div style={{ width: "16%" }}>
-                  <h3>Date<MdDateRange/></h3>
-                  
+                  <h3>
+                    Date
+                   
+                  </h3>
+
                   <p> {x.date}</p>
                 </div>
 
                 <div style={{ width: "16%" }}>
-                  <h3>Weight<FaWeight /></h3>
+                  <h3>
+                    Weight(kg)
+             
+                  </h3>
                   <p> {x.weight}</p>
                 </div>
 
                 <div style={{ width: "16%" }}>
-                  <h3>Lose Weight?<FaWeight /></h3>
-                  <p color="#B84346"><FaAngleDoubleUp color="#B84346" /></p>
+                  <h3>
+                   Weight Progress
+                 
+                  </h3>
+                  <p color="#B84346">
+                    <FaAngleDoubleUp color="red" />
+                  </p>
                 </div>
 
                 <div style={{ width: "16%" }}>
-                  <h3>Workout Days<MdFoodBank /></h3>
+                  <h3>
+                    Workout Days
+                  
+                  </h3>
                   <p>{x.daysWorkedOut}</p>
                 </div>
 
-                
-
                 <div style={{ width: "16%" }}>
-                  <h3>Info<FaInfoCircle /></h3>
+                  <h3>
+                    Info
+        
+                  </h3>
                   <p> {x.extraInfo}</p>
                 </div>
 
-<FormControl/>
-               
+                <FormControl id={x.id} />
               </div>
             </>
           );
-        }
-        
-        
-        
-        
-        
-        else {
+        } else {
           return (
             <>
-              <div className={styles.box}>
-                <div style={{ width: "20%" }}>
+               <div className={styles.box}>
+                <div style={{ width: "16%" }}>
+                  <h3>
+                    Date
+         
+                  </h3>
+
                   <p> {x.date}</p>
                 </div>
 
-                <div style={{ width: "20%" }}>
+                <div style={{ width: "16%" }}>
+                  <h3>
+                    Weight(kg)
+            
+                  </h3>
                   <p> {x.weight}</p>
                 </div>
 
-                <div style={{ width: "20%" }}>
-                  <p><FaAngleDoubleDown color="#606C38"/></p>
+                <div style={{ width: "16%" }}>
+                  <h3>
+                   Weight Progress
+                 
+                  </h3>
+                  <p color="#B84346">
+                    <FaAngleDoubleDown color="lime" />
+                  </p>
                 </div>
 
-                <div style={{ width: "20%" }}>
+                <div style={{ width: "16%" }}>
+                  <h3>
+                    Workout Days
+                
+                  </h3>
                   <p>{x.daysWorkedOut}</p>
                 </div>
 
-               
-
-                <div style={{ width: "20%" }}>
+                <div style={{ width: "16%" }}>
+                  <h3>
+                    Info
+                 
+                  </h3>
                   <p> {x.extraInfo}</p>
                 </div>
+
+                <FormControl  id={x.id} />
               </div>
             </>
           );

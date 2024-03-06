@@ -3,8 +3,16 @@
   }
   
   .buttonDiv button{
-    background-color: #FEFAE0;
+    background-color: #F1E4C3;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
     border: none;
   font-size: 20px;
   cursor: pointer;
+  }
+
+  .buttonDiv button:hover{
+    background-color: rgba(0, 0, 0, 0.099);
+   
   }
