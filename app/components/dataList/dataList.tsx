@@ -1,11 +1,7 @@
 import styles from "./list.module.css";
 import { FaAngleDoubleDown } from "react-icons/fa";
 import { FaAngleDoubleUp } from "react-icons/fa";
-import { MdDateRange } from "react-icons/md";
-import { FaWeight } from "react-icons/fa";
-import { FaWeightHanging } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
-import { CgGym } from "react-icons/cg";
+
 import FormControl from "../formControl/FormControl";
 
 async function getData() {
@@ -74,6 +70,7 @@ export default async function List() {
                 </div>
 
                 <FormControl id={x.id} />
+                
               </div>
             </>
           );
@@ -125,6 +122,7 @@ export default async function List() {
                 </div>
 
                 <FormControl  id={x.id} />
+      
               </div>
             </>
           );

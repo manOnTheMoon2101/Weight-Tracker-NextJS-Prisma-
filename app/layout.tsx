@@ -5,9 +5,9 @@ import "./globals.css";
 import Navbar from "./layouts/navbar/Navbar";
 import Footer from "./layouts/footer/page";
 import Head from "next/head";
-import { Nova_Round } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 
-const nova_round = Nova_Round({
+const roboto_Mono = Roboto_Mono({
   subsets: ["latin"],
   weight: "400",
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
 
       <body>
       <Navbar/>
-        <main>{children}</main>
+        <main className={roboto_Mono.className}>{children}</main>
 
       </body>
     </html>

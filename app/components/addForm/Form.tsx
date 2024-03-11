@@ -4,10 +4,12 @@ import React from "react";
 import { useState } from "react";
 import styles from "./form.module.css";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useRouter } from "next/navigation";
 const Form = () => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(true);
 
   const [data, setData] = useState<any>({});
 
@@ -27,6 +29,7 @@ const Form = () => {
         setData({});
         console.log(data);
         router.refresh();
+        toast("Submitted Succesfully!")
       });
   };
 
@@ -89,21 +92,19 @@ const Form = () => {
           <label>Lost Weight?</label>
           <br />
 
-          
           <input
             type="checkbox"
             name="lostWeight"
-            value={data.lostWeight || ""}
-            checked={isChecked}
+            defaultChecked={!isChecked}
             onChange={handleCheckboxChange}
           />
         </div>
-      {isChecked ? "checked" : "un-checked"}
 
         <div className={styles.submitButton}>
           <button type="submit">Submit</button>
         </div>
       </form>
+
     </>
   );
 };

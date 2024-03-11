@@ -2,8 +2,7 @@
 
 import React from "react";
 import styles from "./filter.module.css";
-import { IoIosCalculator } from "react-icons/io";
-import { IoMdAdd } from "react-icons/io";
+
 import { useState } from "react";
 import { ReactNode } from "react";
 import Modal from "../modal/modal";
@@ -11,6 +10,9 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaCalculator } from "react-icons/fa";
 import Form from "../addForm/Form";
 import Calculator from "../bmiCalculator/Calculator";
+
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 interface MyComponentProps {
   children: ReactNode;
 }
@@ -30,6 +32,7 @@ const FilterDiv: React.FC<MyComponentProps> = ({ children }) => {
   
   return (
     <>
+    <ToastContainer />
       <div className={styles.filterDiv}>
         <select className={styles.selectDiv}>
           <option>March</option>

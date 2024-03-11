@@ -8,11 +8,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 import Modal from "../modal/modal";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function FormControl(id:any) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
-
+  const [postToEdit, setPostToEdit] = useState(id);
 
 
   const toggleModal = () => {
@@ -24,6 +26,24 @@ function FormControl(id:any) {
 
   const router = useRouter();
 
+
+
+  const handleEditPost = (e:any) => {
+    e.preventDefault();
+    axios
+      .patch(`/api/posts/${id}`, postToEdit)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+     
+        router.refresh();
+      });
+  };
+
   const handleDeletePost = (id:any) => {
     axios
     .delete(`/api/data/${id}`)
@@ -34,12 +54,15 @@ function FormControl(id:any) {
       console.log(err);
     })
     .finally(() => {
-     
+     toast("Deleted Succesfully!")
       router.refresh();
     });
   }
 
+
   return (
+
+   
     <>
       <div className={styles.buttonDiv}>
         <h3>Edit/Delete</h3>
@@ -48,7 +71,14 @@ function FormControl(id:any) {
           <MdEdit color="#606C38" />
         </button>
         <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
-          <p>edit</p>
+         <form >
+      
+      
+       
+             
+
+            
+          </form>
         </Modal>
 
         <button onClick={toggleModal2}>
