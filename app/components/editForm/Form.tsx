@@ -1,61 +1,63 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
 import styles from "./form.module.css";
-import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { useRouter } from "next/navigation";
-const Form = () => {
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import useSWR from "swr";
+
+import "react-toastify/dist/ReactToastify.css";
+
+function FormEditForm(id: any) {
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data} = useSWR(`/api/data/${id.id}`, fetcher);
+  const [postToEdit, setPostToEdit] = useState(id);
   const [isChecked, setIsChecked] = useState<boolean>(true);
-
-  const [data, setData] = useState<any>({});
-
   const router = useRouter();
 
-  const handleSubmit = (e: any) => {
+  const handleEditPost = (e: any) => {
     e.preventDefault();
     axios
-      .post("/api/data", data)
-      .then((res: any) => {
+      .patch(`/api/data/${id.id}`, postToEdit)
+      .then((res) => {
         console.log(res);
       })
-      .catch((err: any) => {
+      .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        setData({});
-        console.log(data);
-        toast.success("Submitted Succesfully!");
         router.refresh();
+        toast.info("Edited Succesfully!");
       });
   };
 
   const handleChange = (e: any) => {
     const name = e.target.name;
     const value = parseFloat(e.target.value);
-    setData((prevState: any) => ({ ...prevState, [name]: value }));
+    setPostToEdit((prevState: any) => ({ ...prevState, [name]: value }));
   };
 
   const handleChangeString = (e: any) => {
     const name = e.target.name;
     const value = String(e.target.value);
-    setData((prevState: any) => ({ ...prevState, [name]: value }));
+    setPostToEdit((prevState: any) => ({ ...prevState, [name]: value }));
   };
-
   const handleCheckboxChange = (e: any) => {
     const name = e.target.name;
     const value = Boolean(e.target.value);
-    console.log(isChecked);
+
     setIsChecked(!isChecked);
 
-    setData((prevState: any) => ({ ...prevState, [name]: isChecked }));
+    setPostToEdit((prevState: any) => ({ ...prevState, [name]: isChecked }));
   };
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleEditPost}>
         <div className={styles.middleDiv}>
           <div>
             <h3>Weight</h3>
@@ -64,7 +66,7 @@ const Form = () => {
               type="number"
               name="weight"
               onChange={handleChange}
-              value={data.weight || ""}
+              defaultValue={data.weight || ""}
             />
           </div>
           <div>
@@ -75,7 +77,7 @@ const Form = () => {
               type="number"
               name="days"
               onChange={handleChange}
-              value={data.days || ""}
+              defaultValue={data.daysWorkedOut || ""}
             />
           </div>
           <div>
@@ -83,7 +85,7 @@ const Form = () => {
             <input
               name="info"
               onChange={handleChangeString}
-              value={data.info || ""}
+              defaultValue={data.extraInfo || ""}
             />
           </div>
         </div>
@@ -97,6 +99,7 @@ const Form = () => {
             name="lostWeight"
             defaultChecked={!isChecked}
             onChange={handleCheckboxChange}
+            value={data.loseWeight || ""}
           />
         </div>
 
@@ -106,6 +109,6 @@ const Form = () => {
       </form>
     </>
   );
-};
+}
 
-export default Form;
+export default FormEditForm;

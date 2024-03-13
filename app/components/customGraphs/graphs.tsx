@@ -10,11 +10,11 @@ import {
   Filler,
   Title,
 } from "chart.js";
-
+import { ThreeDots } from "react-loader-spinner";
 import { useCallback, useRef } from "react";
 import { Line } from "react-chartjs-2";
 import React from "react";
-
+import useSWR from "swr";
 ChartJS.register(
   Filler,
   CategoryScale,
@@ -25,16 +25,7 @@ ChartJS.register(
   Title
 );
 
-async function getData() {
-  const data = await fetch("http://localhost:3000/api/data");
-  if (!data.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return data.json();
-}
-
-async function Graphs() {
+function CustomGraphs() {
   const ref = useRef(null);
   const date = new Date();
   const month = date.toLocaleString("default", { month: "long" });
@@ -47,7 +38,21 @@ async function Graphs() {
     link.click();
   }, []);
 
-  const dataM = await getData();
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data, error, isLoading } = useSWR(`/api/data/`, fetcher);
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div><ThreeDots
+  visible={true}
+  height="80"
+  width="80"
+  color="black"
+  radius="9"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+/></div>;
+
   return (
     <div style={{ clear: "both" }}>
       <button onClick={downLoad}>Download Graph</button>
@@ -68,13 +73,13 @@ async function Graphs() {
           plugins: {},
         }}
         data={{
-          labels: dataM.map((x) => x.date),
+          labels: data.map((x: any) => x.date),
 
           datasets: [
             {
               label: "Weight",
 
-              data: dataM.map((x) => x.weight),
+              data: data.map((x: any) => x.weight),
 
               backgroundColor: "#B84346",
               hoverBackgroundColor: "rgb(255, 99, 132)",
@@ -92,4 +97,4 @@ async function Graphs() {
   );
 }
 
-export default Graphs;
+export default CustomGraphs;

@@ -10,6 +10,7 @@
   display: flex;
   text-align: center;
 
+
   justify-content: space-evenly;
 }
 
@@ -24,3 +25,13 @@
 
 }
 
+.infoDiv{
+  width: 16%;
+  
+  
+}
+
+.infoDiv p{
+  overflow-x: scroll;
+
+}
