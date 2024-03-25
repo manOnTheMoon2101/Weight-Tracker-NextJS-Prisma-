@@ -14,22 +14,11 @@
   border: 1px solid white;
   border-radius: 5px;
   padding: 5px;
-  background-color: #597E52;
+  background-color: #597e52;
   color: white;
 }
 
 .buttonDiv {
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 5px;
-  margin-left: 20px;
-  background-color: rgb(198, 169, 105);
-  color: white;
-  cursor: pointer;
-  
-}
-
-.buttonAddDiv {
   border: 1px solid white;
   border-radius: 5px;
   padding: 5px;
@@ -39,8 +28,17 @@
   cursor: pointer;
 }
 
-.buttonAddDiv:active {
+.buttonAddDiv {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
 
+  background-color: rgb(198, 169, 105);
+  color: white;
+  cursor: pointer;
+}
+
+.buttonAddDiv:active {
   border-radius: 5px;
   padding: 5px;
   margin-left: 10px;
@@ -51,8 +49,7 @@
   scale: 0.9;
 }
 
-.buttonDiv:active{
-
+.buttonDiv:active {
   border-radius: 5px;
   padding: 5px;
   margin-left: 20px;

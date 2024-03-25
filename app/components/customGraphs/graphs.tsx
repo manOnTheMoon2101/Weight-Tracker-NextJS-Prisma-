@@ -13,7 +13,9 @@ import {
 import { ThreeDots } from "react-loader-spinner";
 import { useCallback, useRef } from "react";
 import { Line } from "react-chartjs-2";
+import { useState } from "react";
 import React from "react";
+import styles from "./graph.module.css";
 import useSWR from "swr";
 ChartJS.register(
   Filler,
@@ -39,8 +41,15 @@ function CustomGraphs() {
   }, []);
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const [selectedOption, setSelectedOption] = useState(3);
 
-  const { data, error, isLoading } = useSWR(`/api/data/`, fetcher);
+  const handleSelectChange = (event: any) => {
+    setSelectedOption(event.target.value);
+  };
+  const { data, error, isLoading } = useSWR(
+    `/api/date/${selectedOption}`,
+    fetcher
+  );
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div><ThreeDots
   visible={true}
@@ -55,6 +64,10 @@ function CustomGraphs() {
 
   return (
     <div style={{ clear: "both" }}>
+        <select value={selectedOption} onChange={handleSelectChange} className={styles.monthSelect}>
+        <option value="3">March</option>
+        <option value="4">April</option>
+      </select>
       <button onClick={downLoad}>Download Graph</button>
 
       <Line

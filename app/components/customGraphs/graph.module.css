@@ -1,0 +1,10 @@
+.monthSelect {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #597e52;
+    color: white;
+    cursor: pointer;
+  }
+  

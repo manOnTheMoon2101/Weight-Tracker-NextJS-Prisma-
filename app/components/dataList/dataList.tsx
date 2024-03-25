@@ -5,33 +5,49 @@ import { FaAngleDoubleDown } from "react-icons/fa";
 import { FaAngleDoubleUp } from "react-icons/fa";
 import useSWR from "swr";
 import FormControl from "../formControl/FormControl";
-import Modal from "../modal/modal";
+
 import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
-export default function List() {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+const List: React.FC = () => {
+  const [selectedOption, setSelectedOption] = useState(3);
+
+  const handleSelectChange = (event: any) => {
+    setSelectedOption(event.target.value);
   };
 
-  const { data, error, isLoading } = useSWR(`/api/data/`, fetcher);
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data, error, isLoading } = useSWR(
+    `/api/date/${selectedOption}`,
+    fetcher
+  );
 
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div style={{textAlign:'center'}}> <ThreeDots
-  visible={true}
-  height="80"
-  width="80"
-  color="black"
-  radius="9"
-  ariaLabel="three-dots-loading"
-  wrapperStyle={{}}
-  wrapperClass=""
-/></div>;
+  if (isLoading)
+    return (
+      <div style={{ textAlign: "center" }}>
+        {" "}
+        <ThreeDots
+          visible={true}
+          height="80"
+          width="80"
+          color="black"
+          radius="9"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    );
 
   return (
     <div className={styles.mainDiv}>
+      <select value={selectedOption} onChange={handleSelectChange} className={styles.monthSelect}>
+        <option value="3">March</option>
+        <option value="4">April</option>
+      </select>
+
       {data.map((x: any) => {
         if (x.loseWeight == false) {
           return (
@@ -111,4 +127,6 @@ export default function List() {
       })}
     </div>
   );
-}
+};
+
+export default List;

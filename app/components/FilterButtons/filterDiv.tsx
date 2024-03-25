@@ -11,8 +11,9 @@ import { FaCalculator } from "react-icons/fa";
 import Form from "../addForm/Form";
 import Calculator from "../bmiCalculator/Calculator";
 
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 interface MyComponentProps {
   children: ReactNode;
 }
@@ -20,6 +21,8 @@ interface MyComponentProps {
 const FilterDiv: React.FC<MyComponentProps> = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
+
+  const [inputValue, setInputValue] = useState("");
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -29,37 +32,26 @@ const FilterDiv: React.FC<MyComponentProps> = ({ children }) => {
     setIsModalOpen2(!isModalOpen2);
   };
 
-  
+  const handleInputChange = (event: any) => {
+    setInputValue(event.target.value);
+  };
+
   return (
     <>
-    <ToastContainer />
+      <ToastContainer />
       <div className={styles.filterDiv}>
-        <select className={styles.selectDiv}>
-          <option>March</option>
-          <option>April</option>
-        </select>
-
-        <select className={styles.selectDiv}>
-          <option>Gained Weight</option>
-          <option>Lost Weight</option>
-        </select>
-
-        
-        <button  className={styles.buttonAddDiv} onClick={toggleModal}>
+        <button className={styles.buttonAddDiv} onClick={toggleModal}>
           Add Record <IoIosAddCircleOutline />
         </button>
         <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
-      
-         <Form/>
+          <Form />
         </Modal>
 
-
-        
-        <button  className={styles.buttonDiv} onClick={toggleModal2}>
+        <button className={styles.buttonDiv} onClick={toggleModal2}>
           BMI Calculator <FaCalculator />
         </button>
         <Modal isOpen={isModalOpen2} toggleModal={toggleModal2}>
-         <Calculator/>
+          <Calculator />
         </Modal>
       </div>
 

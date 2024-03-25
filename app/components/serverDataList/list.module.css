@@ -3,36 +3,35 @@
   background-color: rgb(241, 228, 195);
   border: 2px solid rgb(198, 169, 105);
   border-radius: 10px;
+
 }
 
 .box {
   display: flex;
   text-align: center;
 
+
   justify-content: space-evenly;
 }
 
-.box h3 {
+.box h3{
   color: rgb(198, 169, 105);
+
 }
 
 .box p {
   padding: 5px;
+
+
 }
 
-.infoDiv {
+.infoDiv{
   width: 16%;
-
-  height: 100px;
-  overflow-y: scroll;
+  
+  
 }
 
-.monthSelect {
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 5px;
-  background-color: #597e52;
-  color: white;
-  cursor: pointer;
+.infoDiv p{
+  overflow-x: scroll;
+
 }
