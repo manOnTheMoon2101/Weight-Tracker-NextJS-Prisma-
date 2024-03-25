@@ -12,10 +12,15 @@ export const GET = async (
         where: {
           date: {
             gte: new Date(`2024-0${month}-01T01:00:00.459+00:00`),
-            lte: new Date(`2024-0${month}-29T01:00:00.459+00:00`),
+            lte: new Date(`2024-0${month}-31T01:00:00.459+00:00`),
           },
         },
       });
+
+      data.map((x: any) => {
+        x.date = x.date.toDateString();
+      });
+  
     if (!data) {
       return NextResponse.json(
         {

@@ -13,7 +13,7 @@ export const GET = async () => {
   } catch (err) {
     return NextResponse.json(
       {
-        message: "POST Error",
+        message: "GET Error",
         err,
       },
       { status: 500 }

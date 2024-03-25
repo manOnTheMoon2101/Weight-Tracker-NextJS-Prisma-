@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import styles from "./form.module.css";
+import styles from "./deleteForm.module.css";
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { useRouter } from "next/navigation";
@@ -58,9 +58,7 @@ function FormControl(id: any) {
         console.log(err);
       })
       .finally(() => {
-        toast.error("Deleted Succesfully!",{
-          
-        });
+        toast.error("Deleted Succesfully!", {});
         router.refresh();
       });
   };
@@ -97,7 +95,7 @@ function FormControl(id: any) {
           <MdDelete color="#B84346" />
         </button>
         <Modal isOpen={isModalOpen2} toggleModal={toggleModal2}>
-          <p>Are you sure?</p>
+          <p style={{color:'black'}}>Are you sure?</p>
           <button onClick={() => handleDeletePost(id.id)}>Yes</button>
           <button onClick={toggleModal2}>No</button>
         </Modal>

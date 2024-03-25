@@ -10,7 +10,10 @@ import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 
 const List: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState(3);
+  const now = new Date()
+const n = now.getMonth() + 1
+
+  const [selectedOption, setSelectedOption] = useState(n);
 
   const handleSelectChange = (event: any) => {
     setSelectedOption(event.target.value);
@@ -44,7 +47,7 @@ const List: React.FC = () => {
   return (
     <div className={styles.mainDiv}>
       <select value={selectedOption} onChange={handleSelectChange} className={styles.monthSelect}>
-        <option value="3">March</option>
+        <option value="3">March </option>
         <option value="4">April</option>
       </select>
 
@@ -52,6 +55,7 @@ const List: React.FC = () => {
         if (x.loseWeight == false) {
           return (
             <>
+     
               <div className={styles.box}>
                 <div style={{ width: "16%" }}>
                   <h3>Date</h3>

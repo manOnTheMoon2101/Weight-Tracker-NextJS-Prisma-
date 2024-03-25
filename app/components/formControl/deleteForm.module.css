@@ -1,0 +1,17 @@
+.buttonDiv {
+  width: 16%;
+  border: 1px solid #f1e4c3;
+  border-radius: 10px;
+
+}
+
+.buttonDiv button {
+  background-color: #c6a969;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+

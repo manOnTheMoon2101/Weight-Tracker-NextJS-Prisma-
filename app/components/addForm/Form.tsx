@@ -56,7 +56,7 @@ const Form = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className={styles.middleDiv}>
+        <div className={styles.leftDiv}>
           <div>
             <h3>Weight</h3>
             <input
@@ -78,28 +78,28 @@ const Form = () => {
               value={data.days || ""}
             />
           </div>
-          <div>
-            <h3>Info</h3>
+
+          <h3>Lost Weight?</h3>
+
+          <div className={styles.checkboxCon}>
             <input
-              name="info"
-              onChange={handleChangeString}
-              value={data.info || ""}
+              id="checkbox"
+              type="checkbox"
+              name="lostWeight"
+              defaultChecked={!isChecked}
+              onChange={handleCheckboxChange}
             />
           </div>
         </div>
 
-        <div className={styles.lostWeightDiv}>
-          <label>Lost Weight?</label>
-          <br />
-
+        <div className={styles.rightDiv}>
+          <h3>Info</h3>
           <input
-            type="checkbox"
-            name="lostWeight"
-            defaultChecked={!isChecked}
-            onChange={handleCheckboxChange}
+            name="info"
+            onChange={handleChangeString}
+            value={data.info || ""}
           />
         </div>
-
         <div className={styles.submitButton}>
           <button type="submit">Submit</button>
         </div>

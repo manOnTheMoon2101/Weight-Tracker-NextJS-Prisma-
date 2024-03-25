@@ -1,19 +1,21 @@
 .mainDiv {
   clear: both;
-  background-color: rgb(241, 228, 195);
-  border: 2px solid rgb(198, 169, 105);
+  background-color: #c6a969;
+  border: 2px solid #f1e4c3;
   border-radius: 10px;
+  color: #f1e4c3;
 }
 
 .box {
   display: flex;
   text-align: center;
+  margin-bottom: 5px;
 
   justify-content: space-evenly;
 }
 
 .box h3 {
-  color: rgb(198, 169, 105);
+  color: white;
 }
 
 .box p {
@@ -28,7 +30,7 @@
 }
 
 .monthSelect {
-  border: 1px solid white;
+  border: 1px solid #f1e4c3;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;

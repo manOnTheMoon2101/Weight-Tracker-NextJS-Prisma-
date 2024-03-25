@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import styles from "./form.module.css";
+import styles from "./editForm.module.css";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 function FormEditForm(id: any) {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { data} = useSWR(`/api/data/${id.id}`, fetcher);
+  const { data } = useSWR(`/api/data/${id.id}`, fetcher);
   const [postToEdit, setPostToEdit] = useState(id);
   const [isChecked, setIsChecked] = useState<boolean>(true);
   const router = useRouter();
@@ -58,9 +58,9 @@ function FormEditForm(id: any) {
   return (
     <>
       <form onSubmit={handleEditPost}>
-        <div className={styles.middleDiv}>
+        <div className={styles.leftDiv}>
           <div>
-            <h3>Weight</h3>
+            <h3 style={{ color: "black" }}>Weight</h3>
             <input
               required
               type="number"
@@ -70,7 +70,7 @@ function FormEditForm(id: any) {
             />
           </div>
           <div>
-            <h3>Workout Days</h3>
+            <h3 style={{ color: "black" }}>Workout Days</h3>
 
             <input
               required
@@ -80,27 +80,28 @@ function FormEditForm(id: any) {
               defaultValue={data.daysWorkedOut || ""}
             />
           </div>
+          <h3 style={{ color: "black" }}>Lost Weight?</h3>
+
+          <div className={styles.checkboxCon}>
+            <input
+              id="checkbox"
+              type="checkbox"
+              name="lostWeight"
+              defaultChecked={!isChecked}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+        </div>
+
+        <div className={styles.rightDiv}>
           <div>
-            <h3>Info</h3>
+            <h3 style={{ color: "black" }}>Info</h3>
             <input
               name="info"
               onChange={handleChangeString}
               defaultValue={data.extraInfo || ""}
             />
           </div>
-        </div>
-
-        <div className={styles.lostWeightDiv}>
-          <label>Lost Weight?</label>
-          <br />
-
-          <input
-            type="checkbox"
-            name="lostWeight"
-            defaultChecked={!isChecked}
-            onChange={handleCheckboxChange}
-            value={data.loseWeight || ""}
-          />
         </div>
 
         <div className={styles.submitButton}>
