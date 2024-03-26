@@ -1,6 +1,6 @@
 .monthSelect {
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px;
     margin: 5px;
     background-color: #597e52;
@@ -8,3 +8,12 @@
     cursor: pointer;
   }
   
+.downButton{
+  border: none;
+ 
+  background-color: #B84346;
+  border-radius: 10px;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}

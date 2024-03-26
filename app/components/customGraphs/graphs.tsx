@@ -51,24 +51,32 @@ function CustomGraphs() {
     fetcher
   );
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div><ThreeDots
-  visible={true}
-  height="80"
-  width="80"
-  color="black"
-  radius="9"
-  ariaLabel="three-dots-loading"
-  wrapperStyle={{}}
-  wrapperClass=""
-/></div>;
+  if (isLoading)
+    return (
+      <div>
+        <ThreeDots
+          visible={true}
+          height="80"
+          width="80"
+          color="black"
+          radius="9"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    );
 
   return (
     <div style={{ clear: "both" }}>
-        <select value={selectedOption} onChange={handleSelectChange} className={styles.monthSelect}>
+      <select
+        value={selectedOption}
+        onChange={handleSelectChange}
+        className={styles.monthSelect}
+      >
         <option value="3">March</option>
         <option value="4">April</option>
       </select>
-      <button onClick={downLoad}>Download Graph</button>
 
       <Line
         ref={ref}
@@ -94,18 +102,21 @@ function CustomGraphs() {
 
               data: data.map((x: any) => x.weight),
 
-              backgroundColor: "#B84346",
+              backgroundColor: "#597E52",
               hoverBackgroundColor: "rgb(255, 99, 132)",
-              borderWidth: 4,
+              borderWidth: 5,
               fill: true,
-              borderColor: "#C6A969",
+              borderColor: "#B84346",
               pointBorderColor: "#111",
-              pointBackgroundColor: "#B84346",
+              pointBackgroundColor: "white",
               pointBorderWidth: 2,
             },
           ],
         }}
       />
+      <button onClick={downLoad} className={styles.downButton}>
+        Download Graph
+      </button>
     </div>
   );
 }
